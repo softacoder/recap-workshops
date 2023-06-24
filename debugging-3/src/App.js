@@ -27,6 +27,7 @@ function SelectTvShow() {
     const [episodes, setEpisodes] = useState([]);
 
     useEffect(() => {
+        
         fetch(`https://api.tvmaze.com/show/${show}/episodes`).then((response) => {
             return response.json()
         }).then((data) => {
@@ -50,7 +51,7 @@ function SelectTvShow() {
 
 function Rating() {
     const [value, setValue] = useState(null);
-    let values = ['Bad', 'Ok', 'Good', 'Great', 'Amazing']
+    let values = [1, 2, 3, 4, 5]
     return <div>
         <label htmlFor='rating'>Rating:</label>
         <select
@@ -62,7 +63,7 @@ function Rating() {
                 }
             }
         >
-            <option>Please Select:</option>
+            <option>Select a rating:</option>
             {values.map((e) => {
                 return <option value={e}>{e}</option>
             })}
